@@ -1,0 +1,2 @@
+- [Spring Boot Docs : Common application properties](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
+- [PART 4: INTERNATIONALIZATION IN SPRING BOOT](https://justinrodenbostel.com/2014/05/13/part-4-internationalization-in-spring-boot/)

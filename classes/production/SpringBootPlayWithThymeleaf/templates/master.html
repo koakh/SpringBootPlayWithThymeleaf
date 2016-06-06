@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Spring Boot Thymeleaf Playground Project</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" media="all" href="../../css/main.css" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+  <p th:text="#{home.welcome}">Welcome to our grocery store!</p>
+  Established locale country: <span th:text="|language:${#locale.language}, country:${#locale.country}">US</span>.
+</body>
+
+</html>
