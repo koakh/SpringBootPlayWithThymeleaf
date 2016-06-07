@@ -1,9 +1,6 @@
 package com.koakh.model.country;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -17,6 +14,9 @@ public class Country {
   private String name;
   @NotNull
   private String code2;
+  //@OneToMany
+  //@JoinColumn(name = "id")
+  //private List<Customer> customer;
 
   protected Country() {
   }

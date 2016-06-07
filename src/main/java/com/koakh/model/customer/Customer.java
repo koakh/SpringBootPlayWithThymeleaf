@@ -1,16 +1,13 @@
 package com.koakh.model.customer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "customer")
 public class Customer {
-
   @Id
   @GeneratedValue
   private Long id;
@@ -22,17 +19,20 @@ public class Customer {
   private Date bornIn;
   @NotNull
   private String email;
-  //@NotNull
   //private Country country;
+  @OneToMany
+  @JoinColumn(name = "id")
+  private List<CustomerLocale> locale;
 
   protected Customer() {
   }
 
-  public Customer(String firstName, String lastName, Date bornIn, String email) {
+  public Customer(String firstName, String lastName, Date bornIn, String email, List<CustomerLocale> locale) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.bornIn = bornIn;
     this.email = email;
+    this.locale = locale;
   }
 
   public Long getId() {
