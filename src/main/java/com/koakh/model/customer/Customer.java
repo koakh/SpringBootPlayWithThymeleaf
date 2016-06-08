@@ -39,6 +39,10 @@ public class Customer {
     return id;
   }
 
+  public void setId(Long id) {
+    this.id = id;
+  }
+
   public String getFirstName() {
     return firstName;
   }
@@ -48,7 +52,6 @@ public class Customer {
   }
 
   public String getLastName() {
-
     return lastName;
   }
 
@@ -72,13 +75,13 @@ public class Customer {
     this.email = email;
   }
 
-  //public Country getCountry() {
-  //  return country;
-  //}
+  public List<CustomerLocale> getLocale() {
+    return locale;
+  }
 
-  //public void setCountry(Country country) {
-  //  this.country = country;
-  //}
+  public void setLocale(List<CustomerLocale> locale) {
+    this.locale = locale;
+  }
 
   @Override
   public String toString() {

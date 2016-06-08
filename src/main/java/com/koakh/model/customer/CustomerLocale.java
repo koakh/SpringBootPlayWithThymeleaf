@@ -1,9 +1,6 @@
 package com.koakh.model.customer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -12,8 +9,8 @@ import java.io.Serializable;
 @Table(name = "customerlocale")
 public class CustomerLocale implements Serializable {
   @Id
-  @GeneratedValue
   private Long id;
+  @Id
   @Size(max = 5)
   private String locale;
   private String title;

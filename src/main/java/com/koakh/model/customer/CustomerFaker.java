@@ -24,7 +24,7 @@ public class CustomerFaker {
 
         ArrayList<CustomerLocale> locale = new ArrayList<>();
         //US
-        CustomerLocale customerLocale = new CustomerLocale("US", String.format("US:%s",faker.lorem.paragraph(1)), faker.lorem.paragraph(1));
+        CustomerLocale customerLocale = new CustomerLocale("US", String.format("US:%s",faker.lorem.words(10).toString()), faker.lorem.words(10).toString());
         customerLocaleRepository.save(customerLocale);
         locale.add(customerLocale);
         //PT
