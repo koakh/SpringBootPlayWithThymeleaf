@@ -1,20 +1,22 @@
 package com.koakh.model.customer;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "customerlocale")
 public class CustomerLocale implements Serializable {
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-  @Id
   @Size(max = 5)
   private String locale;
   private String title;
   private String description;
+  @OneToMany(mappedBy = "locale", cascade = CascadeType.ALL)
+  private Set<Customer> customer;
 
   public CustomerLocale () {
   }
@@ -55,5 +57,13 @@ public class CustomerLocale implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public Set<Customer> getCustomer() {
+    return customer;
+  }
+
+  public void setCustomer(Set<Customer> customer) {
+    this.customer = customer;
   }
 }

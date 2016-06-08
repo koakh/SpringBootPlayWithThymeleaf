@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "customer")
 public class Customer {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   @NotNull
   private String firstName;
@@ -27,7 +27,15 @@ public class Customer {
   protected Customer() {
   }
 
-  public Customer(String firstName, String lastName, Date bornIn, String email, List<CustomerLocale> locale) {
+  public Customer(String firstName, String lastName, Date bornIn, String email) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.bornIn = bornIn;
+    this.email = email;
+  }
+
+  public Customer(String firstName, String lastName, Date bornIn, String email, List<CustomerLocale> locale)
+  {
     this.firstName = firstName;
     this.lastName = lastName;
     this.bornIn = bornIn;
