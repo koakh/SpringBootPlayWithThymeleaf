@@ -15,16 +15,20 @@ public class CustomerLocale implements Serializable {
   private String locale;
   private String title;
   private String description;
-  @OneToMany(mappedBy = "locale", cascade = CascadeType.ALL)
-  private Set<Customer> customer;
+  //@OneToMany(mappedBy = "locale", cascade = CascadeType.ALL)
+  //private Set<Customer> customer;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "customer_id")
+  private Customer customer;
 
-  public CustomerLocale () {
+  public CustomerLocale() {
   }
 
-  public CustomerLocale (String locale, String title, String description) {
+  public CustomerLocale(String locale, String title, String description, Customer customer) {
     this.locale = locale;
     this.title = title;
     this.description = description;
+    this.customer = customer;
   }
 
   public Long getId() {
@@ -59,11 +63,7 @@ public class CustomerLocale implements Serializable {
     this.description = description;
   }
 
-  public Set<Customer> getCustomer() {
-    return customer;
-  }
+  public Customer getCustomer() {  return customer; }
 
-  public void setCustomer(Set<Customer> customer) {
-    this.customer = customer;
-  }
+  public void setCustomer(Customer customer) { this.customer = customer; }
 }

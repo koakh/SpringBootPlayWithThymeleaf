@@ -4,6 +4,7 @@ import com.koakh.model.book.Book;
 import com.koakh.model.book.BookCategory;
 import com.koakh.model.book.BookCategoryRepository;
 import com.koakh.model.book.BookRepository;
+import com.koakh.model.customer.Customer;
 import com.koakh.model.customer.CustomerRepository;
 import com.koakh.service.MessageByLocaleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,10 @@ public class CustomerController {
       bookRepository.save(book);
       book = new Book("Hidden", bookCategory);
       bookRepository.save(book);
+
+
+      Customer customer = customerRepository.findOne(28L);
+      model.addAttribute("customer", customer);
 
       return "customer";
     }

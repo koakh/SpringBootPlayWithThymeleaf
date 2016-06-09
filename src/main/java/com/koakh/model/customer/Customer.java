@@ -20,8 +20,10 @@ public class Customer {
   @NotNull
   private String email;
   //private Country country;
-  @OneToMany
-  @JoinColumn(name = "id")
+  //@OneToMany
+  //@JoinColumn(name = "id")
+  //private List<customerLocale> locale;
+  @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
   private List<CustomerLocale> locale;
 
   protected Customer() {
@@ -83,13 +85,9 @@ public class Customer {
     this.email = email;
   }
 
-  public List<CustomerLocale> getLocale() {
-    return locale;
-  }
+  public List<CustomerLocale> getLocale() { return locale; }
 
-  public void setLocale(List<CustomerLocale> locale) {
-    this.locale = locale;
-  }
+  public void setLocale(List<CustomerLocale> locale) { this.locale = locale; }
 
   @Override
   public String toString() {

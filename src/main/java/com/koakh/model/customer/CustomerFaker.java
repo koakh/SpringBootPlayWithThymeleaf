@@ -22,32 +22,50 @@ public class CustomerFaker {
 
       for (int i = 0; i < noOfRecords; i++) {
 
+        ArrayList<CustomerLocale> locale = new ArrayList<>();
+
         Customer customer = new Customer(
           faker.name.firstName(),
           faker.name.lastName(),
           faker.date.birthday(),
-          faker.internet.email()
+          faker.internet.email(),
+          locale
         );
+
+        //US
+        CustomerLocale customerLocale1 = new CustomerLocale(
+          "US",
+          String.format("US:%s",faker.lorem.words(20).toString()),
+          faker.lorem.words(20).toString(),
+          customer
+        );
+//customerLocaleRepository.save(customerLocale1);
+        locale.add(customerLocale1);
+        //PT
+        CustomerLocale customerLocale2 = new CustomerLocale(
+          "PT",
+          String.format("US:%s",
+            faker.lorem.words(20).toString()),
+          faker.lorem.words(20).toString(),
+          customer
+        );
+//customerLocaleRepository.save(customerLocale2);
+        locale.add(customerLocale2);
+        //US
+        CustomerLocale customerLocale3 = new CustomerLocale(
+          "ES",
+          String.format("US:%s",faker.lorem.words(20).toString()),
+          faker.lorem.words(20).toString(),
+          customer
+        );
+//customerLocaleRepository.save(customerLocale3);
+        locale.add(customerLocale3);
 
         log.info(String.format("Creating: %s", customer.toString()));
         repository.save(customer);
 
-        ArrayList<CustomerLocale> locale = new ArrayList<>();
-        //US
-        CustomerLocale customerLocale1 = new CustomerLocale("US", String.format("US:%s",faker.lorem.words(10).toString()), faker.lorem.words(10).toString());
-        customerLocaleRepository.save(customerLocale1);
-        locale.add(customerLocale1);
-        //PT
-        CustomerLocale customerLocale2 = new CustomerLocale("PT", String.format("PT:%s",faker.lorem.paragraph(1)), faker.lorem.paragraph(1));
-        customerLocaleRepository.save(customerLocale2);
-        locale.add(customerLocale2);
-        //US
-        CustomerLocale customerLocale3 = new CustomerLocale("ES", String.format("ES:%s",faker.lorem.paragraph(1)), faker.lorem.paragraph(1));
-        customerLocaleRepository.save(customerLocale3);
-        locale.add(customerLocale3);
-
-        customer.setLocale(locale);
-        repository.save(customer);
+        //customer.setLocale(locale);
+        //repository.save(customer);
       }
     } catch (Exception e) {
       e.printStackTrace();
