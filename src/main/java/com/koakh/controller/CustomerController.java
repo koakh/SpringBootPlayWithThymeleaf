@@ -48,7 +48,6 @@ public class CustomerController {
       book = new Book("Hidden", bookCategory);
       bookRepository.save(book);
 
-
       return "customer";
     }
 }
